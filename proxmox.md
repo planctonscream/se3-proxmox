@@ -6,14 +6,14 @@ Dans l'installation présentée, il y a trois disques dur:
 
 sda 500 Go, sdb 100 Go et sdc 500 Go
 
-![01-choix-disque](images/01-choix-disque.png)
+![01](images/01.png)
 
 On choisit d'installer proxmox sur l premier disque sda.  
 On choisit la langue, ainsi que la ville et le type de clavier.
-![02-choix langue](images/02-choix langue.png)
+![02](images/02.png)
 
 Choix du mdp root
-photo 03
+![03](images/03.png)
 choix du réseau
 entrer l'ip du serveur, pour le dns, on pourra choisir un dns externe comme celui de google.
 L'installation des paquets est automatique.
