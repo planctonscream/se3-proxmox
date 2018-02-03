@@ -14,17 +14,21 @@ On choisit la langue, ainsi que la ville et le type de clavier.
 
 Choix du mdp root
 ![03](images/03.png)
-choix du réseau
-entrer l'ip du serveur, pour le dns, on pourra choisir un dns externe comme celui de google.
+**choix du réseau**
+entrer l'ip du serveur, pour le dns, on pourra choisir l'ip du Amon, ouun dns externe comme celui de google.
 L'installation des paquets est automatique.
-le serveur redémarre , et indique comment acceder à l'interface de gestion. On peut acceder evidemment au serveur en ssh (connexion directe par le compte root possible)
-il faudra se connecter en root sur le serveur et configurer le proxy en ligne de commande
+Le serveur redémarre , et indique comment acceder à l'interface de gestion. On peut acceder evidemment au serveur en ssh (connexion directe par le compte root possible).
 
-```export http_proxy="http://172.20.0.1:3128"
+Il faudra se connecter en root sur le serveur et configurer le proxy en ligne de commande
+
+```
+export http_proxy="http://172.20.0.1:3128"
 export https_proxy="http://172.20.0.1:3128"
-export ftp_proxy="http://172.20.0.1:3128"```
+export ftp_proxy="http://172.20.0.1:3128"
+```
 
-Il suffit d'utiliser un navigateur et de se rendre à l'adresse indiquée. Il faudra peut-être désactiver le proxy du navigateur pour accéder à l'interface.
+Il suffit d'utiliser un navigateur et de se rendre à l'adresse indiquée. 
+**ATTENTION**, il faudra peut-être désactiver le proxy du navigateur pour accéder à l'interface.
 on indique le mode pam authentification, puis le login "root", et mdp.
 Un message d'erreur indique que le serveur n'est pas enregistré, ce qui est normal. Ignorer donc cet avertissement.
 
@@ -33,7 +37,7 @@ On arrive sur l'interface
 la partie 'datecenteur' peut contenir plusieurs noeuds (serveurs proxmox). ici il n'y en a qu'un (nom netbios pve).
 De base, le systeme est installé sur la partie "local (pve)", les vms et snapshots seront écrites sur cet espace dans /var/lib/vz  si on ne modifie rien. 
 Le reste du disque est organisé en lvm et pourra contenir les sauvegardes et images iso de livecd.
-photo 08
+![08](images/08.png)
 
 Il suffit de double cliquer sur l'espace de stockage pour changer le type de données qu'on va y mettre.
 
