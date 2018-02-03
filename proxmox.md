@@ -6,7 +6,7 @@ Dans l'installation présentée, il y a trois disques dur:
 
 sda 500 Go, sdb 100 Go et sdc 500 Go
 
-![01-choix disque](images/01-choix disque.png)
+![01-choix-disque](images/01-choix-disque.png)
 
 On choisit d'installer proxmox sur l premier disque sda.  
 On choisit la langue, ainsi que la ville et le type de clavier.
