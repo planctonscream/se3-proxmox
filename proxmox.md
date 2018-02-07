@@ -5,7 +5,8 @@ Le serveur et les vms peuvent se gérer à partir d'une interface web, et une ge
 
 L'installation pourra se faire avec les paquets proxmox, mais il sera bien plus pratique d'utiliser l'iso toute faite sur le site officiel de proxmox:
 https://www.proxmox.com/en/downloads
-L'installation est très simple.
+
+L'installation est très simple: très peu de choses sont demandées. On regrêtera cependant le peu de choix concernant le partionnement du serveur.
 
 Dans l'installation présentée, il y a trois disques dur:
 
@@ -13,9 +14,9 @@ sda 500 Go, sdb 100 Go et sdc 500 Go
 
 ![01](images/01.png)
 
-On choisit d'installer proxmox sur l premier disque sda.  Les autres disques serviront à stocker des sauvegardes de machines (les snapshots sont placés dans le même esapce de stockage que les machines), des fichiers iso de livecd pour les machinest,etc...
+On choisit d'installer proxmox sur l premier disque sda.  Les autres disques serviront à stocker des sauvegardes de machines (les snapshots sont placés dans le même espace de stockage que les machines), des fichiers iso de livecd pour les machines,etc...
 
-Pour un serveur comme le se3, il sera clairement conseillé de mettre plusieurs disques identiques et d'utiliser un système zfs avec du cache (options). Les machines virtuelles pourront elles être en autres formats (xfs,ext4,ntfs...)
+Pour un serveur comme le se3, il sera clairement conseillé de mettre plusieurs disques identiques et d'utiliser un système zfs avec du cache ( aller voir dans `options`). Les machines virtuelles pourront elles être en autres formats (xfs,ext4,ntfs...)
 
 On choisit la langue, ainsi que la ville et le type de clavier.
 ![02](images/02.png)
@@ -23,7 +24,7 @@ On choisit la langue, ainsi que la ville et le type de clavier.
 **Choix du mdp root**
 ![03](images/03.png)
 
-On entrera une adresse mail valide pour que le serveur puisse envoyer des alertes à l'administrateur.
+On entrera une **adresse mail valide** pour que le serveur puisse envoyer des alertes à l'administrateur.
 
 **choix du réseau**
 
@@ -43,10 +44,12 @@ export https_proxy="http://172.20.0.1:3128"
 export ftp_proxy="http://172.20.0.1:3128"
 ```
 
-Il suffit d'utiliser un navigateur et de se rendre à l'adresse indiquée. 
+Pour gérer le serveur et les machines virtuelles,il suffit d'utiliser un navigateur et de se rendre à l'adresse indiquée. 
+
+
 **ATTENTION**, il faudra peut-être désactiver le proxy du navigateur pour accéder à l'interface.
 
-On indique le mode pam authentification, puis le login "root", et mdp.
+On indique le mode `pam authentification`, puis le login "root", et mdp.
 
 ![07](images/07.png)
 
@@ -64,24 +67,40 @@ Le reste du disque est organisé en lvm et pourra contenir les sauvegardes et im
 
 Il suffit de double cliquer sur l'espace de stockage pour changer le type de données qu'on va y mettre.
 ![09](images/09.png)
+**Quelques points à modifier pour la gestion du serveur**
 
+*modification des sources
 Il est possible de récupérer les mises à jour de proxmox sans payer de cotisation en utilisant le dépot non-entreprise. La méthode est décrite ici.
 
 https://pve.proxmox.com/wiki/Package_Repositories
 
-**Configuration de l'envoi de mail par le serveur**
+*Configuration de l'envoi de mail par le serveur
 Pour que le serveur puisse envoyer les alertes par mail, on va installer le paquet en lgne de commande
 ```
 apt-get update
 apt-get install ssmtp
 
 ```
-Il suffira ensuite de copier le contenu du fichier de conf /etc/ssmtp/ssmtp.conf du se3 sur celui du serveur proxmox.
+On modifie le fichier de configuration
+```
+nano /etc/ssmtp/ssmtp.conf
+```
+
+Il suffira ensuite de copier le contenu du fichier de conf /etc/ssmtp/ssmtp.conf du se3 sur celui du serveur proxmox. 5voici à quoi doit ressembler le contenu du fichier.
+
+```
+# Genere par l'interface de Se3
+root=marc.bansse@ac-versailles.fr
+mailhub=smtp.nerim.net
+rewriteDomain=lyc-prevert-longjumeau.ac-versailles.fr
+hostname=lyc-prevert-longjumeau.ac-versailles.fr
+```
+
 
 **Ajout d'un disque dur interne pour stocker les vm et/ou  les sauvegardes**
 
 Le disque doit posséder une partition et doit êre formaté. 
-On repère l'UUID du disque en faisant
+On repère l'UUID du disque en faisant:
 ```
 blkid
 ```
