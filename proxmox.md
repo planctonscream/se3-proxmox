@@ -3,13 +3,18 @@
 Proxmox est un système de virtualisation basé sur Debian et qui utilise KVM. Il permet à la façon de virtualbox de créer des  snapshots de machine, des sauvegardes complètes et beaucoup d'autres fonctionnalités. 
 Le serveur et les vms peuvent se gérer à partir d'une interface web, et une gestion possible des comptes utilisateurs va permettre de laisser à des tiers un accès avec plus ou moins de droits sur une machine (comme le serveur bcdi par exemple).  
 
+L'installation pourra se faire avec les paquets proxmox, mais il sera bien plus pratique d'utiliser l'iso toute faite sur le site officiel de proxmox:
+https://www.proxmox.com/en/downloads
+
+
 Dans l'installation présentée, il y a trois disques dur:
 
 sda 500 Go, sdb 100 Go et sdc 500 Go
 
 ![01](images/01.png)
 
-On choisit d'installer proxmox sur l premier disque sda.  
+On choisit d'installer proxmox sur l premier disque sda.  Les autres disques serviront à stocker des sauvegardes de machines (les snapshots sont placés dans le même esapce de stockage que les machines), des fichiers iso de livecd pour les machinest,etc...
+
 Pour un serveur comme le se3, il sera clairement conseillé de mettre plusieurs disques identiques et d'utiliser un système zfs avec du cache. Les machines virtuelles pourront elles être en autres formats (xfs,ext4,ntfs...)
 
 On choisit la langue, ainsi que la ville et le type de clavier.
@@ -17,11 +22,15 @@ On choisit la langue, ainsi que la ville et le type de clavier.
 
 Choix du mdp root
 ![03](images/03.png)
-**choix du réseau**
-entrer l'ip du serveur, pour le dns, on pourra choisir l'ip du Amon, ouun dns externe comme celui de google.
-L'installation des paquets est automatique.
-Le serveur redémarre , et indique comment acceder à l'interface de gestion. On peut acceder evidemment au serveur en ssh (connexion directe par le compte root possible).
 
+**choix du réseau**
+![04](images/04.png)
+
+Entrer l'ip du serveur, pour le dns, on pourra choisir l'ip du Amon, oun dns externe comme celui de google.
+L'installation des paquets est automatique.
+
+Le serveur redémarre , et indique comment acceder à l'interface de gestion. On peut acceder evidemment au serveur en ssh (connexion directe par le compte root possible).
+![06](images/06.png)
 
 Il faudra se connecter en root sur le serveur et configurer le proxy en ligne de commande
 
@@ -33,7 +42,12 @@ export ftp_proxy="http://172.20.0.1:3128"
 
 Il suffit d'utiliser un navigateur et de se rendre à l'adresse indiquée. 
 **ATTENTION**, il faudra peut-être désactiver le proxy du navigateur pour accéder à l'interface.
-on indique le mode pam authentification, puis le login "root", et mdp.
+
+On indique le mode pam authentification, puis le login "root", et mdp.
+
+![07](images/07.png)
+Par la suite, il sera possible de créer des comptes utilisateurs proxmox pour permettre à d'autres personnes de démarrer/éteindre/gérer des vms.
+
 Un message d'erreur indique que le serveur n'est pas enregistré, ce qui est normal. Ignorer donc cet avertissement.
 
 
