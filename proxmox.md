@@ -112,14 +112,28 @@ On peut faire datacenter>stockage>ajouter> répertoire. On indique le répertoir
 
 On choisi également le type de contenu que l'on souhaite y mettre:
 
-*image iso --> livecd
-*conteneur et images disques --> vm et snapshots
-*fichier sauvegarde vzdump --> export de machine pour sauvegarde complète.
+*image iso --> livecd*
+*conteneur et images disques --> vm et snapshots*
+*fichier sauvegarde vzdump --> export de machine pour sauvegarde complète.*
 
 
-**Ajout de livecd iso pour booter sur clonezilla une vm (ou autre livecd)
-On va sur le serveur (et non plus sur datacenter), on se place sur l'espace choisi pour mettre les iso ex (local-sav), puis résumé>upload, on ajoute le fichier iso.
+**Ajout de livecd iso pour booter sur clonezilla une vm (ou autre livecd)**
+On va sur le serveur (et non plus sur datacenter), on se place sur l'espace choisi pour mettre les iso ex (local-sav), puis résumé>upload, on ajoute le fichier iso qui a été téléchargé sur un poste quelconque.
 ![13](images/13.png)
+
+**Utilisation su serveur**
+Au lieu d'utiliser un logiciel comme putty, il suffira de se connecter à l'interface et de cliquer sur shell pour travailler sur le terminal /tty1
+
+
+**création de VM**
+A venir
+
+**restauration d'un serveur existant sur une vm proxmox**
+a venir
+
+**snapshots**
+**savegarde complète d'une machine**
+**restauration d'une machine**
 
 
 
