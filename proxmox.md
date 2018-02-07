@@ -80,9 +80,7 @@ Il suffira ensuite de copier le contenu du fichier de conf /etc/ssmtp/ssmtp.conf
 
 **Ajout d'un disque dur interne pour stocker les vm et/ou  les sauvegardes**
 
-On va monter le  disque sur le serveur 
-![10](images/10.png)
-Il faut que le disque dispose 
+Le disque doit posséder une partition et doit êre formaté. 
 On repère l'UUID du disque en faisant
 ```
 blkid
@@ -94,9 +92,10 @@ On peut faire datacenter>stockage>ajouter> répertoire. On indique le répertoir
 ![11](images/11.png)
 
 On choisi également le type de contenu que l'on souhaite y mettre:
-image iso --> livecd
-conteneur et images disques --> vm et snapshots
-fichier sauvegarde vzdump --> export de machine pour sauvegarde complète.
+
+*image iso --> livecd
+*conteneur et images disques --> vm et snapshots
+*fichier sauvegarde vzdump --> export de machine pour sauvegarde complète.
 
 
 **Ajout de livecd iso pour booter sur clonezilla une vm (ou autre livecd)
