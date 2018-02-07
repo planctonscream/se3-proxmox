@@ -20,13 +20,16 @@ Pour un serveur comme le se3, il sera clairement conseillé de mettre plusieurs 
 On choisit la langue, ainsi que la ville et le type de clavier.
 ![02](images/02.png)
 
-Choix du mdp root
+**Choix du mdp root**
 ![03](images/03.png)
 
+On entrera une adresse mail valide pour que le serveur puisse envoyer des alertes à l'administrateur.
+
 **choix du réseau**
+
 ![04](images/04.png)
 
-Entrer l'ip du serveur, pour le dns, on pourra choisir l'ip du Amon, oun dns externe comme celui de google.
+Entrer l'ip du serveur, pour le dns, on pourra choisir l'ip du 'Amon', oun dns externe comme celui de google.
 L'installation des paquets est automatique.
 
 Le serveur redémarre , et indique comment acceder à l'interface de gestion. On peut acceder evidemment au serveur en ssh (connexion directe par le compte root possible).
@@ -46,34 +49,54 @@ Il suffit d'utiliser un navigateur et de se rendre à l'adresse indiquée.
 On indique le mode pam authentification, puis le login "root", et mdp.
 
 ![07](images/07.png)
+
 Par la suite, il sera possible de créer des comptes utilisateurs proxmox pour permettre à d'autres personnes de démarrer/éteindre/gérer des vms.
 
 Un message d'erreur indique que le serveur n'est pas enregistré, ce qui est normal. Ignorer donc cet avertissement.
 
 
-On arrive sur l'interface
-la partie 'datecenteur' peut contenir plusieurs noeuds (serveurs proxmox). ici il n'y en a qu'un (nom netbios pve).
+On arrive sur l'interface. 
+La partie 'datecenteur' peut contenir plusieurs noeuds (serveurs proxmox). Ici il n'y en a qu'un (nom netbios pve).
+
 De base, le systeme est installé sur la partie "local (pve)", les vms et snapshots seront écrites sur cet espace dans /var/lib/vz  si on ne modifie rien. 
 Le reste du disque est organisé en lvm et pourra contenir les sauvegardes et images iso de livecd.
 ![08](images/08.png)
 
 Il suffit de double cliquer sur l'espace de stockage pour changer le type de données qu'on va y mettre.
+![09](images/09.png)
 
-Il est possible de récupérer les mises à jour de proxmox sans payer de cotisation en utilisant le dépot non-entreprise.
+Il est possible de récupérer les mises à jour de proxmox sans payer de cotisation en utilisant le dépot non-entreprise. La méthode est décrite ici.
+
 https://pve.proxmox.com/wiki/Package_Repositories
 
-ON va monter les deux disques sur le serveur pour y mettre les vm et les sauvegardes
-photo 10
+**Configuration de l'envoi de mail par le serveur**
+Pour que le serveur puisse envoyer les alertes par mail, on va installer le paquet en lgne de commande
+```
+apt-get update
+apt-get install ssmtp
 
+```
+Il suffira ensuite de copier le contenu du fichier de conf /etc/ssmtp/ssmtp.conf du se3 sur celui du serveur proxmox.
+
+**Ajout d'un disque dur interne pour stocker les vm et/ou  les sauvegardes**
+
+On va monter le  disque sur le serveur 
+![10](images/10.png)
+Il faut que le disque dispose 
+On repère l'UUID du disque en faisant
+```
+blkid
+```
+Ensuite, il suffira de modifier le fichier fstab pour que le disque soit automatiquement monté au démarrage.
+![fstab](images/fstab.png)
 On peut faire datacenter>stockage>ajouter> répertoire
-photo 11
+![11](images/11.png)
 On choisi également le type de contenu que l'on souhaite y mettre:
 image iso --> livecd
 conteneur et images disques --> vm et snapshots
 fichier sauvegarde vzdump --> export de machine pour sauvegarde complète.
-photo 12
 
-
+On peut choisir de placer 
 
 
 Ajout de livecd iso pour booter sur clonezilla une vm (ou autre livecd)
