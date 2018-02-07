@@ -1,11 +1,11 @@
-####début de brouillon, aucune mise en page fait######
+####début de brouillon######
 
-Proxmox est un système de virtualisation basé sur Debian et qui utilise KVM. Il permet à la façon de virtualbox de créer des  snapshots de machine, des sauvegardes complètes et beaucoup d'autres fonctionnalités. 
+Proxmox est un puissant système de virtualisation basé sur Debian et qui utilise KVM. Il permet à la façon de virtualbox de créer des  snapshots de machine, des sauvegardes complètes et beaucoup d'autres fonctionnalités. 
 Le serveur et les vms peuvent se gérer à partir d'une interface web, et une gestion possible des comptes utilisateurs va permettre de laisser à des tiers un accès avec plus ou moins de droits sur une machine (comme le serveur bcdi par exemple).  
 
 L'installation pourra se faire avec les paquets proxmox, mais il sera bien plus pratique d'utiliser l'iso toute faite sur le site officiel de proxmox:
 https://www.proxmox.com/en/downloads
-
+L'installation est très simple.
 
 Dans l'installation présentée, il y a trois disques dur:
 
@@ -15,7 +15,7 @@ sda 500 Go, sdb 100 Go et sdc 500 Go
 
 On choisit d'installer proxmox sur l premier disque sda.  Les autres disques serviront à stocker des sauvegardes de machines (les snapshots sont placés dans le même esapce de stockage que les machines), des fichiers iso de livecd pour les machinest,etc...
 
-Pour un serveur comme le se3, il sera clairement conseillé de mettre plusieurs disques identiques et d'utiliser un système zfs avec du cache. Les machines virtuelles pourront elles être en autres formats (xfs,ext4,ntfs...)
+Pour un serveur comme le se3, il sera clairement conseillé de mettre plusieurs disques identiques et d'utiliser un système zfs avec du cache (options). Les machines virtuelles pourront elles être en autres formats (xfs,ext4,ntfs...)
 
 On choisit la langue, ainsi que la ville et le type de clavier.
 ![02](images/02.png)
@@ -29,7 +29,7 @@ On entrera une adresse mail valide pour que le serveur puisse envoyer des alerte
 
 ![04](images/04.png)
 
-Entrer l'ip du serveur, pour le dns, on pourra choisir l'ip du 'Amon', oun dns externe comme celui de google.
+Entrer l'ip du serveur, pour le dns, on pourra choisir l'ip du `Amon`, oun dns externe comme celui de google.
 L'installation des paquets est automatique.
 
 Le serveur redémarre , et indique comment acceder à l'interface de gestion. On peut acceder evidemment au serveur en ssh (connexion directe par le compte root possible).
@@ -88,20 +88,20 @@ On repère l'UUID du disque en faisant
 blkid
 ```
 Ensuite, il suffira de modifier le fichier fstab pour que le disque soit automatiquement monté au démarrage.
-![fstab](images/fstab.png)
-On peut faire datacenter>stockage>ajouter> répertoire
+![10](images/10.png)
+
+On peut faire datacenter>stockage>ajouter> répertoire. On indique le répertoire choisi comme point de montage.
 ![11](images/11.png)
+
 On choisi également le type de contenu que l'on souhaite y mettre:
 image iso --> livecd
 conteneur et images disques --> vm et snapshots
 fichier sauvegarde vzdump --> export de machine pour sauvegarde complète.
 
-On peut choisir de placer 
 
-
-Ajout de livecd iso pour booter sur clonezilla une vm (ou autre livecd)
+**Ajout de livecd iso pour booter sur clonezilla une vm (ou autre livecd)
 On va sur le serveur (et non plus sur datacenter), on se place sur l'espace choisi pour mettre les iso ex (local-sav), puis résumé>upload, on ajoute le fichier iso.
-
+![13](images/13.png)
 
 
 
