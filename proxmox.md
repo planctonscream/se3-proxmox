@@ -17,7 +17,7 @@ sda 500 Go, sdb 100 Go et sdc 500 Go
 On choisit d'installer proxmox sur l premier disque sda.  Les autres disques serviront à stocker des sauvegardes de machines (les snapshots sont placés dans le même espace de stockage que les machines), des fichiers iso de livecd pour les machines,etc...
 
 Pour un serveur comme le se3, il sera clairement conseillé de mettre plusieurs disques identiques et d'utiliser un système zfs avec du cache ( aller voir dans `options`). Les machines virtuelles pourront elles être en autres formats (xfs,ext4,ntfs...)
-
+![01bis](images/01bis.png)
 On choisit la langue, ainsi que la ville et le type de clavier.
 ![02](images/02.png)
 
