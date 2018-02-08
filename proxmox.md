@@ -3,7 +3,7 @@
 
 * [Présentation](#présentation)
 * [Installation de base du serveur](#installation-de-base-du-serveur)
-* [Interface web de gestion](#Interface-web-de-gestion)
+* [Interface web de gestion](#interface-web-de-gestion)
 
 ## Présentation
 
