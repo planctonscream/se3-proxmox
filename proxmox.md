@@ -3,7 +3,7 @@
 
 * [Présentation](#présentation)
 * [Installation de base du serveur](#installation-de-base-du-serveur)
-* [Accès à l'interface de gestion](#accès-à-interface-de-gestion)
+* [Interface web de gestion](#Interface-web-de-gestion)
 
 ## Présentation
 
@@ -53,7 +53,7 @@ export http_proxy="http://172.20.0.1:3128"
 export https_proxy="http://172.20.0.1:3128"
 export ftp_proxy="http://172.20.0.1:3128"
 ```
-## Accès à l'interface de gestion
+## Interface web de gestion
 
 Pour gérer le serveur et les machines virtuelles,il suffit d'utiliser un navigateur et de se rendre à l'adresse indiquée. 
 
