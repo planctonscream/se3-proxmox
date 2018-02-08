@@ -2,7 +2,8 @@
 
 
 * [Présentation](#présentation)
-* [Installation du serveur](#installation-du-serveur)
+* [Installation de base du serveur](#installation-de-base-du-serveur)
+* [Accès à l'interface de gestion](#accès-à-interface-de-gestion)
 
 ## Présentation
 
@@ -12,7 +13,7 @@ Le serveur et les vms peuvent se gérer à partir d'une interface web, et une ge
 L'installation pourra se faire avec les paquets proxmox, mais il sera bien plus pratique d'utiliser l'iso toute faite sur le site officiel de proxmox:
 https://www.proxmox.com/en/downloads
 
-## Installation du serveur
+## Installation de base du serveur
 
 L'installation est très simple: très peu de choses sont demandées. On regrêtera cependant le peu de choix concernant le partionnement du serveur.
 
@@ -52,6 +53,7 @@ export http_proxy="http://172.20.0.1:3128"
 export https_proxy="http://172.20.0.1:3128"
 export ftp_proxy="http://172.20.0.1:3128"
 ```
+## Accès à l'interface de gestion
 
 Pour gérer le serveur et les machines virtuelles,il suffit d'utiliser un navigateur et de se rendre à l'adresse indiquée. 
 
