@@ -1,10 +1,18 @@
 ####début de brouillon######
 
+
+* [Présentation](#présentation)
+* [Installation du serveur](#installation-du-serveur)
+
+## Présentation
+
 Proxmox est un puissant système de virtualisation basé sur Debian et qui utilise KVM. Il permet à la façon de virtualbox de créer des  snapshots de machine, des sauvegardes complètes et beaucoup d'autres fonctionnalités. 
 Le serveur et les vms peuvent se gérer à partir d'une interface web, et une gestion possible des comptes utilisateurs va permettre de laisser à des tiers un accès avec plus ou moins de droits sur une machine (comme le serveur bcdi par exemple).  
 
 L'installation pourra se faire avec les paquets proxmox, mais il sera bien plus pratique d'utiliser l'iso toute faite sur le site officiel de proxmox:
 https://www.proxmox.com/en/downloads
+
+## Installation du serveur
 
 L'installation est très simple: très peu de choses sont demandées. On regrêtera cependant le peu de choix concernant le partionnement du serveur.
 
@@ -18,6 +26,7 @@ On choisit d'installer proxmox sur l premier disque sda.  Les autres disques ser
 
 Pour un serveur comme le se3, il sera clairement conseillé de mettre plusieurs disques identiques et d'utiliser un système zfs avec du cache ( aller voir dans `options`). Les machines virtuelles pourront elles être en autres formats (xfs,ext4,ntfs...)
 ![01bis](images/01bis.png)
+
 On choisit la langue, ainsi que la ville et le type de clavier.
 ![02](images/02.png)
 
