@@ -46,6 +46,9 @@ L'installation des paquets est automatique.
 Le serveur redémarre , et indique comment acceder à l'interface de gestion. On peut acceder evidemment au serveur en ssh (connexion directe par le compte root possible).
 ![06](images/06.png)
 
+### Quelques points à modifier pour la gestion du serveur**
+
+**Reglage du proxy** 
 Il faudra se connecter en root sur le serveur et configurer le proxy en ligne de commande
 
 ```
@@ -53,42 +56,9 @@ export http_proxy="http://172.20.0.1:3128"
 export https_proxy="http://172.20.0.1:3128"
 export ftp_proxy="http://172.20.0.1:3128"
 ```
-## Interface web de gestion
-
-Pour gérer le serveur et les machines virtuelles,il suffit d'utiliser un navigateur et de se rendre à l'adresse indiquée. 
 
 
-**ATTENTION**, il faudra peut-être désactiver le proxy du navigateur pour accéder à l'interface.
-
-On indique le mode `pam authentification`, puis le login "root", et mdp.
-
-![07](images/07.png)
-
-Par la suite, il sera possible de créer des comptes utilisateurs proxmox pour permettre à d'autres personnes de démarrer/éteindre/gérer des vms.
-
-Un message d'erreur indique que le serveur n'est pas enregistré, ce qui est normal. Ignorer donc cet avertissement.
-
-
-On arrive sur l'interface. 
-On observe la présence d'un datacenter, qui pourra contenir plusieurs serveurs proxmox (noeuds ou clusters).Ici il n'y en a qu'un (nom netbios pve).
-Le disque de départ est donc partionné en deux parties distinctes:
-*local(pve)* qui prend environ 1/5 du disque sda .
-*local-lvm  (pve)*, l'espace restant 
-
-De base, le systeme est installé sur la partie "local (pve)", les vms et snapshots seront écrites sur cet espace dans /var/lib/vz  si on ne modifie rien. 
-Le reste du disque est organisé en lvm et pourra contenir les sauvegardes et images iso de livecd.
-![08](images/08.png)
-
-Il suffit de double cliquer sur l'espace de stockage pour changer le type de données qu'on va y mettre.
-![09](images/09.png)
-**Quelques points à modifier pour la gestion du serveur**
-
-*modification des sources
-Il est possible de récupérer les mises à jour de proxmox sans payer de cotisation en utilisant le dépot non-entreprise. La méthode est décrite ici.
-
-https://pve.proxmox.com/wiki/Package_Repositories
-
-*Configuration de l'envoi de mail par le serveur
+**Configuration de l'envoi de mail par le serveur**
 Pour que le serveur puisse envoyer les alertes par mail, on va installer le paquet en lgne de commande
 ```
 apt-get update
@@ -109,6 +79,44 @@ mailhub=smtp.nerim.net
 rewriteDomain=lyc-prevert-longjumeau.ac-versailles.fr
 hostname=lyc-prevert-longjumeau.ac-versailles.fr
 ```
+
+
+
+**modification des sources**
+Il est possible de récupérer les mises à jour de proxmox sans payer de cotisation en utilisant le dépot non-entreprise. La méthode est décrite ici.
+
+https://pve.proxmox.com/wiki/Package_Repositories
+
+## Interface web de gestion
+Pour gérer le serveur et les machines virtuelles,il suffit d'utiliser un navigateur et de se rendre à l'adresse indiquée. 
+
+
+**ATTENTION**, il faudra peut-être désactiver le proxy du navigateur pour accéder à l'interface.
+
+On indique le mode `pam authentification`, puis le login "root", et mdp.
+
+
+![07](images/07.png)
+
+Par la suite, il sera possible de créer des comptes utilisateurs proxmox pour permettre à d'autres personnes de démarrer/éteindre/gérer des vms.
+
+Un message d'erreur indique que le serveur n'est pas enregistré, ce qui est normal. Ignorer donc cet avertissement.
+
+
+On arrive sur l'interface. 
+On observe la présence d'un datacenter, qui pourra contenir plusieurs serveurs proxmox (noeuds ou clusters).Ici il n'y en a qu'un (nom netbios pve).
+Le disque de départ est donc partionné en deux parties distinctes:
+*local(pve)* qui prend environ 1/5 du disque sda .
+*local-lvm  (pve)*, l'espace restant 
+
+De base, le systeme est installé sur la partie "local (pve)", les vms et snapshots seront écrites sur cet espace dans /var/lib/vz  si on ne modifie rien. 
+Le reste du disque est organisé en lvm et pourra contenir les sauvegardes et images iso de livecd.
+![08](images/08.png)
+
+Il suffit de double cliquer sur l'espace de stockage pour changer le type de données qu'on va y mettre.
+![09](images/09.png)
+
+
 
 
 **Ajout d'un disque dur interne pour stocker les vm et/ou  les sauvegardes**
