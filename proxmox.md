@@ -6,7 +6,7 @@
 * [Interface web de gestion](#interface-web-de-gestion)
 * [Ajout de disques durs internes pour stocker les vm ou les sauvegardes](#ajout-de-disques-durs-internes-pour-stocker-les-vm-ou-les-sauvegardes)
 * [Ajout de livecd iso pour booter une vm](#ajout-de-livecd-iso-pour-booter-une-vm)
-* [création de machine virtuelle](#création-de-machine-virtuelle)
+* [Création de machine virtuelle](#création-de-machine-virtuelle)
 
 ## Présentation
 
@@ -197,20 +197,24 @@ Ces iso peuvent être des netinstall debian, livecd clonezilla, disques d'instal
 
 ![14](images/14.png)
 
-## création de machine virtuelle
-**Configuration de l'ID de la VM.
+## Création de machine virtuelle
+
+**Configuration de l'ID de la VM
+
 ![15](images/15.png)
 
 Les VM sont repérées par leur numéro (ici 100). On donnera le nom souhaité pour plus de clareté.
 
 **Configuration du cd-rom.
-Il faut senuite choisir le contenu du cd-rom. On peut utiliser une des iso que l'on a auparavant uploadé sur le serveur, ou alors utiliser le cd-rom de l'hote, voir aucun cd-rom si tout est fait en pxe.
+
+Il faut ensuite choisir le contenu du cd-rom. On peut utiliser une des iso que l'on a auparavant uploadé sur le serveur, ou alors utiliser le cd-rom de l'hote, voir aucun cd-rom si tout est fait en pxe.
 ![16](images/16.png)
 
 On choisir aussi si le système d'exploitation de la future machine virtuelle.
 ![17](images/17.png)
 
 **Configuration du disque dur.
+
 ![18](images/18.png)
 Remarque:Comme pour Virtualbox, la place prise réellement sur le disque dur sera la place occupée par la VM, et non la taille choisie du disque.
 
