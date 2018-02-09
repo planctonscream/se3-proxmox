@@ -5,6 +5,8 @@
 * [Installation de base du serveur](#installation-de-base-du-serveur)
 * [Interface web de gestion](#interface-web-de-gestion)
 * [Ajout de disques durs internes pour stocker les vm ou les sauvegardes](#ajout-de-disques-durs-internes-pour-stocker-les-vm-ou-les-sauvegardes)
+* [Ajout de livecd iso pour booter une vm](#ajout-de-livecd-iso-pour-booter-une-vm)
+
 ## Présentation
 
 Proxmox est un puissant système de virtualisation basé sur Debian et qui utilise KVM. Il permet à la façon de virtualbox de créer des  snapshots de machine, des sauvegardes complètes et beaucoup d'autres fonctionnalités. 
@@ -178,10 +180,11 @@ On choisi également le type de contenu que l'on souhaite y mettre:
 
 
 
-**Ajout de livecd iso pour booter sur clonezilla une vm (ou autre livecd)**
+## Ajout de livecd iso pour booter une vm 
 On va sur le serveur (et non plus sur datacenter), on se place sur l'espace choisi pour mettre les iso ex (local-sav), puis résumé>upload, on ajoute le fichier iso qui a été téléchargé sur un poste quelconque.
 ![13](images/13.png)
 
+Ces iso peuvent être des netinstall debian, livecd clonezilla, disques d'installation de windows server ou tout autre livecd.
 
 **création de VM**
 A venir
