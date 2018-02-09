@@ -4,7 +4,7 @@
 * [Présentation](#présentation)
 * [Installation de base du serveur](#installation-de-base-du-serveur)
 * [Interface web de gestion](#interface-web-de-gestion)
-
+* [Ajout de disques durs internes pour stocker les vm ou les sauvegardes](#ajout-de-disques-durs-internes-pour-stocker-les-vm-ou-les-sauvegardes)
 ## Présentation
 
 Proxmox est un puissant système de virtualisation basé sur Debian et qui utilise KVM. Il permet à la façon de virtualbox de créer des  snapshots de machine, des sauvegardes complètes et beaucoup d'autres fonctionnalités. 
@@ -107,9 +107,41 @@ Un message d'erreur indique que le serveur n'est pas enregistré, ce qui est nor
 
 On arrive sur l'interface. 
 On observe la présence d'un datacenter, qui pourra contenir plusieurs serveurs proxmox (noeuds ou clusters).Ici il n'y en a qu'un (nom netbios pve).
-Le disque de départ est donc partionné en deux parties distinctes:
+
+
+Datacenter | rôles
+-----------|--------
+résumé     | permet de voir l'état général des clusters.
+options    | permet de changer les réglages claviers,proxy logiciel, adresse mail expéditeur
+stockage   | permet d'ajouter des espaces de stockage (répertoire locaux,partage ntfs,iscsi...) et d'indiquer quel type de données ils contiendront (images iso,vms,sauvegardes...). 
+sauvegarde | permet de programmer des sauvegardes de machines.
+permissions| permet de gérer/créer des comptes utilisateurs,groupes utilisateurs
+
+
+**contenu des disques**
+Il faudra indiquer pour chaque espace de stockage ce qu'ils contiendront:
+
+dénomination | type de données stockées
+-----------|--------
+image iso | livecd ou autre image de cd.
+conteneur et images disques | vm et snapshots.
+fichier sauvegarde vzdump | export de machine pour sauvegarde complète.
+
+Ensuite, nous tronvons le premier serveur de vm. 
+
+noeud PVE1| rôles
+-----------|--------
+résumé     | permet de voir les stats d'utilisation du serveur(CPU,RAM...).
+shell      | permet d'ouvrir un terminal sur le serveur (plus besoin de putty ou autre connecteur ssh).
+Système    | permet de cchanger les paramètres réseau,dns,voir les logs de syslog...
+Mises à jour| Comme son nom l'indique, permet de faire les mises à jour serveur.
+disques    | Permet de voir l'état des disques durs (smartvalues)
+
+Ensuite, nous trouvons une ligne pour chaque espace de stockage. Le disque de départ est  partionné en deux parties distinctes:
 *local(pve)* qui prend environ 1/5 du disque sda .
 *local-lvm  (pve)*, l'espace restant 
+
+Si d'autres esapces sont ajoutés (voir la suite)
 
 De base, le systeme est installé sur la partie "local (pve)", les vms et snapshots seront écrites sur cet espace dans /var/lib/vz  si on ne modifie rien. 
 Le reste du disque est organisé en lvm et pourra contenir les sauvegardes et images iso de livecd.
@@ -121,7 +153,7 @@ Il suffit de double cliquer sur l'espace de stockage pour changer le type de don
 
 
 
-**Ajout d'un disque dur interne pour stocker les vm et/ou  les sauvegardes**
+## Ajout de disques durs internes pour stocker les vm ou les sauvegardes
 
 Dans l'exemple suivant, on choisit de mettre ses vm et les sauvegardes dans deux disques qui seront montés dans /vm et dans /sauvegardes.
 
@@ -143,20 +175,12 @@ On peut faire datacenter>stockage>ajouter> répertoire. On indique le répertoir
 
 On choisi également le type de contenu que l'on souhaite y mettre:
 
-*image iso --> livecd ou autre image de cd*
-
-*conteneur et images disques --> vm et snapshots*
-
-*fichier sauvegarde vzdump --> export de machine pour sauvegarde complète.*
 
 
 
 **Ajout de livecd iso pour booter sur clonezilla une vm (ou autre livecd)**
 On va sur le serveur (et non plus sur datacenter), on se place sur l'espace choisi pour mettre les iso ex (local-sav), puis résumé>upload, on ajoute le fichier iso qui a été téléchargé sur un poste quelconque.
 ![13](images/13.png)
-
-**Utilisation su serveur**
-Au lieu d'utiliser un logiciel comme putty, il suffira de se connecter à l'interface et de cliquer sur shell pour travailler sur le terminal /tty1
 
 
 **création de VM**
