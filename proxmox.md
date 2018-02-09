@@ -17,15 +17,15 @@ https://www.proxmox.com/en/downloads
 
 L'installation est très simple: très peu de choses sont demandées. On regrêtera cependant le peu de choix concernant le partionnement du serveur.
 
-Dans l'installation présentée, il y a trois disques dur:
+Dans l'installation présentée, il y a trois disques dur: Le premier va servir à installer le système. Le second servira à stocker les machines virtuelles et le troisième servira à stocker les sauvegardes de machines.
 
-sda 500 Go, sdb 100 Go et sdc 500 Go
+sda 500 Go, sdb 100 Go et sdc 500 Go.
 
 ![01](images/01.png)
 
 On choisit d'installer proxmox sur l premier disque sda.  Les autres disques serviront à stocker des sauvegardes de machines (les snapshots sont placés dans le même espace de stockage que les machines), des fichiers iso de livecd pour les machines,etc...
 
-Pour un serveur comme le se3, il sera clairement conseillé de mettre plusieurs disques identiques et d'utiliser un système zfs avec du cache ( aller voir dans `options`). Les machines virtuelles pourront elles être en autres formats (xfs,ext4,ntfs...)
+Pour virtualiser un serveur comme le `se3`, il sera clairement conseillé de mettre plusieurs disques identiques et d'utiliser un système zfs avec du cache ( aller voir dans `options`). Les machines virtuelles pourront elles être en autres formats (xfs,ext4,ntfs...)
 ![01bis](images/01bis.png)
 
 On choisit la langue, ainsi que la ville et le type de clavier.
@@ -70,7 +70,9 @@ On modifie le fichier de configuration
 nano /etc/ssmtp/ssmtp.conf
 ```
 
-Il suffira ensuite de copier le contenu du fichier de conf /etc/ssmtp/ssmtp.conf du se3 sur celui du serveur proxmox. 5voici à quoi doit ressembler le contenu du fichier.
+Il suffira ensuite de copier le contenu du fichier de conf /etc/ssmtp/ssmtp.conf du se3 sur celui du serveur `proxmox`.
+
+Voici à quoi doit ressembler le contenu du fichier.
 
 ```
 # Genere par l'interface de Se3
