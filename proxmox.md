@@ -266,7 +266,7 @@ On se place sur la VM>snapshots puis sur `Créer un snapshot`. Il sera aussi uti
 
 L'opération sera à peu près identique pour les sauvegardes complètes. On clique sur `sauvegarde` et celle-ci va se faire à chaud.
 Pour la restauration, on se placera sur l'esapce de stockage dédié aux sauvegardes, puis on cliquera sur la sauvegarde en faisant restaurer. 
-![27(images/27.png)
+![27](images/27.png)
 
 ## Migration d'un serveur physique existant vers une VM `Proxmox`
 a venir
