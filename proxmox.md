@@ -102,13 +102,13 @@ On indique le mode `pam authentification`, puis le login "root", et mdp.
 
 ![07](images/07.png)
 
-Par la suite, il sera possible de créer des comptes utilisateurs proxmox pour permettre à d'autres personnes de démarrer/éteindre/gérer des vms.
+Par la suite, il sera possible de créer des comptes utilisateurs `proxmox` pour permettre à d'autres personnes de démarrer/éteindre/gérer des vms.
 
 Un message d'erreur indique que le serveur n'est pas enregistré, ce qui est normal. Ignorer donc cet avertissement.
 
 
 On arrive sur l'interface. 
-On observe la présence d'un datacenter, qui pourra contenir plusieurs serveurs proxmox (noeuds ou clusters).Ici il n'y en a qu'un (nom netbios pve).
+On observe la présence d'un datacenter, qui pourra contenir plusieurs serveurs `proxmox` (noeuds ou clusters).Ici il n'y en a qu'un (nom netbios pve).
 
 
 Datacenter | rôles
@@ -126,7 +126,7 @@ Il faudra indiquer pour chaque espace de stockage ce qu'ils contiendront:
 dénomination | type de données stockées
 -----------|--------
 image iso | livecd ou autre image de cd.
-conteneur et images disques | vm et snapshots.
+conteneur et images disques | vm ou conteneur lxc (et snapshots mis automatiquement au même endroit).
 fichier sauvegarde vzdump | export de machine pour sauvegarde complète.
 
 Ensuite, nous tronvons le premier serveur de vm. 
@@ -143,9 +143,9 @@ Ensuite, nous trouvons une ligne pour chaque espace de stockage. Le disque de d�
 *local(pve)* qui prend environ 1/5 du disque sda .
 *local-lvm  (pve)*, l'espace restant 
 
-Si d'autres esapces sont ajoutés (voir la suite)
+On pourra ajouter d'autres espaces (voir la suite)
 
-De base, le systeme est installé sur la partie "local (pve)", les vms et snapshots seront écrites sur cet espace dans /var/lib/vz  si on ne modifie rien. 
+De base, le systeme est installé sur la partie `local (pve)`, les vms et snapshots seront écrites sur cet espace dans `/var/lib/vz`  si on ne modifie rien. 
 Le reste du disque est organisé en lvm et pourra contenir les sauvegardes et images iso de livecd.
 ![08](images/08.png)
 
@@ -169,10 +169,18 @@ blkid
 ```
 
 
-Ensuite, il suffira de modifier le fichier fstab pour que le disque soit automatiquement monté au démarrage.
+Ensuite, il suffira de modifier le fichier [/etc/fstab] pour que le disque soit automatiquement monté au démarrage.
 ![10](images/10.png)
 
-On peut faire datacenter>stockage>ajouter> répertoire. On indique le répertoire choisi comme point de montage.
+On peut vérifier si cela fonctionne correctement à chaud en faisant sur le shell serveur
+```
+bmount -a
+mount
+```
+La dernière commande doit indiquer que les deux disques sont bien montés dans le répertoire choisi. 
+Il faut maintenant indiquer au serveur qu'il doit utiliser ces espaces de stockage ajoutés.
+
+On peut faire `datacenter>stockage>ajouter> répertoire`. On y écrit le répertoire choisi comme point de montage.
 ![11](images/11.png)
 
 On choisi également le type de contenu que l'on souhaite y mettre:
@@ -181,7 +189,7 @@ On choisi également le type de contenu que l'on souhaite y mettre:
 
 
 ## Ajout de livecd iso pour booter une vm 
-On va sur le serveur (et non plus sur datacenter), on se place sur l'espace choisi pour mettre les iso ex (local-sav), puis résumé>upload, on ajoute le fichier iso qui a été téléchargé sur un poste quelconque.
+On va sur le serveur (et non plus sur datacenter), on se place sur l'espace choisi pour mettre les iso (ex local-sav) puis `résumé>upload`, on ajoute le fichier iso qui a été téléchargé sur un poste quelconque.
 ![13](images/13.png)
 
 Ces iso peuvent être des netinstall debian, livecd clonezilla, disques d'installation de windows server ou tout autre livecd.
