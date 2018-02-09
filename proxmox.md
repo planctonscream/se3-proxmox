@@ -228,7 +228,26 @@ On peut choisir le nombre de coeurs du processeur. L'aide indique que l'on peut 
 
 **Mémoire**
 On indique la quantité de RAm à allouer à la VM. On peut utiliser une quantité dynamique pour les serveurs fonctionnant par intermittence.
+![20](images/20.png)
 
+**réseau**
+Il ne reste plus qu'à choisir les caractéristiques du réseau. On prendra le mode bridge, pour que la VM puisse avoir une ip du mme genre que la machine hote.
+
+Il sera également possible de choisir différents modèles de cartes réseau. Pour des VM Windows, il sera préférebale de prendre un modèle du style `Réaltek` qui sera reconnu nativement sans avoir à installer de drivers
+
+![21](images/21.png)
+
+On valide la dernière étape et la Machine Virtuelle est presque prête.
+
+**Activation de l'affichage**
+Lorsque la machine vient tout juste d'pêtre créée, il est indispensable d'avoir un affichage de l'écran. Pour cela, cliquer sur la VM, puis options et activer `Agent Qemu` sur Yes.
+![22](images/22.png)
+
+Une fois que tout ceci est prêt, on peut enfin démarrer sa VM. Il suffira d'aller dans l'onglet `Console` pour voir ce qu'indique la VM.
+![24](images/24.png)
+
+On peut aussi utiliser le mode plein écran pour travailler dans de meilleurs conditions.
+![25](images/25.png)
 
 ## Migration d'un serveur physique existant vers une VM `Proxmox`
 a venir
