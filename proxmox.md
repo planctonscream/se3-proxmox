@@ -199,13 +199,13 @@ Ces iso peuvent être des netinstall debian, livecd clonezilla, disques d'instal
 
 ## Création de machine virtuelle
 
-**Configuration de l'ID de la VM
+**Configuration de l'ID de la VM**
 
 ![15](images/15.png)
 
 Les VM sont repérées par leur numéro (ici 100). On donnera le nom souhaité pour plus de clareté.
 
-**Configuration du cd-rom.
+**Configuration du cd-rom.**
 
 Il faut ensuite choisir le contenu du cd-rom. On peut utiliser une des iso que l'on a auparavant uploadé sur le serveur, ou alors utiliser le cd-rom de l'hote, voir aucun cd-rom si tout est fait en pxe.
 ![16](images/16.png)
@@ -213,24 +213,24 @@ Il faut ensuite choisir le contenu du cd-rom. On peut utiliser une des iso que l
 On choisir aussi si le système d'exploitation de la future machine virtuelle.
 ![17](images/17.png)
 
-**Configuration du disque dur.
+**Configuration du disque dur.**
 
 ![18](images/18.png)
 Remarque:Comme pour Virtualbox, la place prise réellement sur le disque dur sera la place occupée par la VM, et non la taille choisie du disque.
 
 *J'utilise pour mes serveurs le mode `SATA`, mais il est possible que les résultats soient meilleurs avec d'autres reglages.*
 
-**Reglage CPU.
+**Reglage CPU**
+
 On peut choisir le nombre de coeurs du processeur. L'aide indique que l'on peut mettre sans problème plus de coeurs virtuels que de coeurs réels du serveur hote.
 
 ![19](images/19.png)
 
-**Mémoire
+**Mémoire**
 On indique la quantité de RAm à allouer à la VM. On peut utiliser une quantité dynamique pour les serveurs fonctionnant par intermittence.
 
 
-
-**restauration d'un serveur existant sur une vm proxmox**
+## Migration d'un serveur physique existant vers une VM `Proxmox`
 a venir
 
 **snapshots**
