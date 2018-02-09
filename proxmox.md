@@ -216,6 +216,8 @@ On choisir aussi si le système d'exploitation de la future machine virtuelle.
 **Configuration du disque dur.**
 
 ![18](images/18.png)
+
+
 Remarque:Comme pour Virtualbox, la place prise réellement sur le disque dur sera la place occupée par la VM, et non la taille choisie du disque.
 
 *J'utilise pour mes serveurs le mode `SATA`, mais il est possible que les résultats soient meilleurs avec d'autres reglages.*
