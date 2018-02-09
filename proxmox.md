@@ -146,9 +146,8 @@ Ensuite, nous trouvons une ligne pour chaque espace de stockage. Le disque de d�
 *local-lvm  (pve)*, l'espace restant 
 
 On pourra ajouter d'autres espaces (voir la suite)
+Sans modification,les VMS/conteneurs/snapshots sont placés dans la LVM alors que les iso et sauvegardes sont dans le système de base.
 
-De base, le systeme est installé sur la partie `local (pve)`, les vms et snapshots seront écrites sur cet espace dans `/var/lib/vz`  si on ne modifie rien. 
-Le reste du disque est organisé en lvm et pourra contenir les sauvegardes et images iso de livecd.
 ![08](images/08.png)
 
 Il suffit de double cliquer sur l'espace de stockage pour changer le type de données qu'on va y mettre.
