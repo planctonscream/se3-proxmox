@@ -194,6 +194,8 @@ On va sur le serveur (et non plus sur datacenter), on se place sur l'espace choi
 
 Ces iso peuvent être des netinstall debian, livecd clonezilla, disques d'installation de windows server ou tout autre livecd.
 
+![14](images/14.png)
+
 **création de VM**
 A venir
 
