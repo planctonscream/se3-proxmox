@@ -176,7 +176,7 @@ Ensuite, il suffira de modifier le fichier [/etc/fstab] pour que le disque soit 
 
 On peut vérifier si cela fonctionne correctement à chaud en faisant sur le shell serveur
 ```
-bmount -a
+mount -a
 mount
 ```
 La dernière commande doit indiquer que les deux disques sont bien montés dans le répertoire choisi. 
@@ -262,21 +262,63 @@ On peut donc fabriquer un instantanné (snapshot) de la VM avant une mise à jou
 
 **snapshot de la machine**
 
-On se place sur la VM>snapshots puis sur `Créer un snapshot`. Il sera aussi utile de décrire l'état de la machine (date, avant mas,etc...)
+On se place sur la `VM>snapshots` puis sur `Créer un snapshot`. Il sera aussi utile de décrire l'état de la machine (date, avant mas,etc...)
 ![26](images/26.png)
 
 **Sauvegarde complète**
 
 L'opération sera à peu près identique pour les sauvegardes complètes. On clique sur `sauvegarde` et celle-ci va se faire à chaud.
-Pour la restauration, on se placera sur l'espace de stockage dédié aux sauvegardes, puis on cliquera sur la sauvegarde en faisant restaurer. 
+
+Pour la restauration, on se placera sur l'espace de stockage dédié aux sauvegardes, puis on cliquera sur la sauvegarde en faisant `restaurer`. 
 ![27](images/27.png)
 
 ## Ajout d'un périphérique usb dans une machine virtuelle
+A venir
 
-## Migration d'un serveur physique existant vers une VM `Proxmox`
-a venir
+## Créer un compte utilisateur 
+Par défaut, seul le compte root local du serveur possède un accès à l'interface de gestion. Il sera utile de créer un ou plusieurs comptes pour qu'un autre utilisateur puisse démarrer les machines virtuelles, ou puisse créer/restaurer des snapshots (Pour le documentaliste si on a virtualisé le serveur bcdi par exemple).
+
+On se place sur `datacenter>Permissions>utilisateur` puis `Ajouter`. On entre les informations demandées.
+
+L'utilisateur est ainsi créé mais ne dispose d'aucun droit sur les VMS. Il faut donc lui ajouter des permissions. On peut de la même façon créer des groupes et mettre plusieurs utilisateurs dedans.
+
+On se place sur `datacenter>Permissions`, puis ajouter permission d'utilisateur (On peut aussi ajouter des permissions de groupes si on a mis plusieurs utilisateurs dans un mme groupe, évitant ainsi de faire plusieurs fois la manipulation.
+
+chemin vms/100
+
+## Migration d'un serveur physique existant vers une VM.
+*a venir*
+Le principe est simple: on va faire une image clonezilla du serveur existant. Il suffira ensuite de créer une VM ayant des caractéristiques identiques et de restaurer l'image clonezilla sur cette VM. 
 
 
+**Création de l'image clonezilla**
+Pour créer l'image clonezilla sur le serveur physique, on pourra booter avec un livecd sur la dernière version de clonezilla.
+La suite est décrite dans l'article suivant.
+
+https://github.com/SambaEdu/se3-docs/blob/master/se3-sauvegarde/clonerse3.md
+
+L'image pourra être stockée sur un disque dur externe, sur un serveur linux avec une connexion ssh, ou sur un partage samba (NAS ou serveur samba). Le plus simple sera d'utiliser un stockage réseau.
+
+**Restauration de l'image clonezilla sur une VM.**
+On crée la VM avec un disque de capacité au moins identique à celui du serveur physique original
+De nombreux périphériques vont être détectés au démarrage, ce qui est normal.
+
+[*Problèmes possibles:*]
+
+**La carte réseau ne semble pas détectée.**
+
+Si la VM est un poste Windows, il faudra changer le modèle de carte et prendre le modèle `Realtek`. Un message d'avertissement indiquera probablement qu'une ip était déjà prise par une ancienne carte réseau et il faudra valider l'utilisation de la nouvelle carte.
+
+Si la VM est sous Linux, il faudra probablement supprimer le fichier `/etc/udev/rules.d/70-persistent-net.rules`.
+Ce fichier sera régéneré au redémarrage avec la nouvelle adresse mac et eth0 devrait de nouveau apparaitre.
+
+**image non restaurable**
+
+Il faut alors augmenter la capacité du disque virtuel
+
+**Disque dur non détecté**
+
+Si le mode SATA était activé, il faut alors essayé un autre type de connexion (scsi).
 
 
 
