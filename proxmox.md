@@ -3,6 +3,9 @@
 
 * [Présentation](#présentation)
 * [Installation de base du serveur](#installation-de-base-du-serveur)
+     * [Choix du mdp root](#choix-du-mdp-root)
+     * [choix du réseau](#choix-du-réseau)
+     * [Reglage du proxy](#reglage-du-proxy)
 * [Interface web de gestion](#interface-web-de-gestion)
 * [Ajout de disques durs internes pour stocker les vm ou les sauvegardes](#ajout-de-disques-durs-internes-pour-stocker-les-vm-ou-les-sauvegardes)
 * [Ajout de livecd iso pour booter une vm](#ajout-de-livecd-iso-pour-booter-une-vm)
@@ -36,12 +39,12 @@ Pour virtualiser un serveur comme le `se3`, il sera clairement conseillé de met
 On choisit la langue, ainsi que la ville et le type de clavier.
 ![02](images/02.png)
 
-**Choix du mdp root**
+### **Choix du mdp root**
 ![03](images/03.png)
 
 On entrera une **adresse mail valide** pour que le serveur puisse envoyer des alertes à l'administrateur.
 
-**choix du réseau**
+### **choix du réseau**
 
 ![04](images/04.png)
 
@@ -51,9 +54,9 @@ L'installation des paquets est automatique.
 Le serveur redémarre , et indique comment acceder à l'interface de gestion. On peut acceder evidemment au serveur en ssh (connexion directe par le compte root possible).
 ![06](images/06.png)
 
-### Quelques points à modifier pour la gestion du serveur**
+[Quelques points à modifier pour la gestion du serveur]
 
-**Reglage du proxy** 
+### **Reglage du proxy** 
 Il faudra se connecter en root sur le serveur et configurer le proxy en ligne de commande
 
 ```
