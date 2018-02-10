@@ -8,6 +8,7 @@
 * [Ajout de livecd iso pour booter une vm](#ajout-de-livecd-iso-pour-booter-une-vm)
 * [Création de machine virtuelle](#création-de-machine-virtuelle)
 * [Sauvegarde et restauration de machines virtuelles](#sauvegarde-et-restauration-de-machines-virtuelles)
+
 ## Présentation
 
 Proxmox est un puissant système libre (le support est néanmoins payant) de virtualisation basé sur Debian et qui utilise l'hyperviseur KVM (pour de la virtualisation complète), ou des containeurs lxc Il permet à la façon de virtualbox (mais cette fois pour un usage pro) de créer des  snapshots de machine, des sauvegardes complètes et beaucoup d'autres fonctionnalités. 
@@ -231,7 +232,7 @@ On peut choisir le nombre de coeurs du processeur. L'aide indique que l'on peut 
 **Mémoire**
 
 On indique la quantité de RAm à allouer à la VM. On peut utiliser une quantité dynamique pour les serveurs fonctionnant par intermittence.
-![20](images/20.png)
+
 
 **réseau**
 
@@ -246,7 +247,7 @@ On valide la dernière étape et la Machine Virtuelle est presque prête.
 **Activation de l'affichage**
 
 Lorsque la machine vient tout juste d'pêtre créée, il est indispensable d'avoir un affichage de l'écran. Pour cela, cliquer sur la VM, puis options et activer `Agent Qemu` sur Yes.
-![22](images/22.png)
+![23](images/23.png)
 
 Une fois que tout ceci est prêt, on peut enfin démarrer sa VM. Il suffira d'aller dans l'onglet `Console` pour voir ce qu'indique la VM.
 ![24](images/24.png)
@@ -267,15 +268,16 @@ On se place sur la VM>snapshots puis sur `Créer un snapshot`. Il sera aussi uti
 **Sauvegarde complète**
 
 L'opération sera à peu près identique pour les sauvegardes complètes. On clique sur `sauvegarde` et celle-ci va se faire à chaud.
-Pour la restauration, on se placera sur l'esapce de stockage dédié aux sauvegardes, puis on cliquera sur la sauvegarde en faisant restaurer. 
+Pour la restauration, on se placera sur l'espace de stockage dédié aux sauvegardes, puis on cliquera sur la sauvegarde en faisant restaurer. 
 ![27](images/27.png)
+
+## Ajout d'un périphérique usb dans une machine virtuelle
 
 ## Migration d'un serveur physique existant vers une VM `Proxmox`
 a venir
 
-**snapshots**
-**savegarde complète d'une machine**
-**restauration d'une machine**
+
+
 
 
 
