@@ -303,9 +303,18 @@ On se place sur `datacenter>Permissions>utilisateur` puis `Ajouter`. On entre le
 
 L'utilisateur est ainsi créé mais ne dispose d'aucun droit sur les VMS. Il faut donc lui ajouter des permissions. On peut de la même façon créer des groupes et mettre plusieurs utilisateurs dedans.
 
-On se place sur `datacenter>Permissions`, puis ajouter permission d'utilisateur (On peut aussi ajouter des permissions de groupes si on a mis plusieurs utilisateurs dans un mme groupe, évitant ainsi de faire plusieurs fois la manipulation.
+On se place sur `datacenter>PVE1>IDdelaVM>Permissions`, puis ajouter `permission d'utilisateur` (On peut aussi ajouter des permissions de groupes si on a mis plusieurs utilisateurs dans un mme groupe, évitant ainsi de faire plusieurs fois la manipulation.
+Il ne reste plus qu'à choisir l'utilisateur créé précédement  et de lui attribuer un rôle.
+![29](images/29.png)
 
-chemin vms/100
+La liste complète des rôles avec les droits associés peut se lire dans `Datacenter>Permissions>roles`
+![30](images/30.png)
+
+On peut voir ici que l'utilisateur documentaliste ne perçoit que la VM concernée, et a moins de droits que `root`.
+![31](images/31.png)
+
+--> Il doit être possible de créer un rôle ayant seulement quelques privilèges comme allumer/éteindre la VM, faire des sauvegardes/snapshots et les restaurer. A voir donc.
+
 
 ## Migration d'un serveur physique existant vers une VM.
 *a venir*
