@@ -15,6 +15,14 @@
 * [Ajout de disques durs internes pour stocker les vm ou les sauvegardes](#ajout-de-disques-durs-internes-pour-stocker-les-vm-ou-les-sauvegardes)
 * [Ajout de livecd iso pour booter une vm](#ajout-de-livecd-iso-pour-booter-une-vm)
 * [Création de machine virtuelle](#création-de-machine-virtuelle)
+     * [Configuration de l'ID de la VM](#configuration-de-lid-de-la-vm)
+     * [Configuration du cd-rom](#configuration-du-cd-rom)
+     * [Configuration du disque dur](#configuration-du-disque-dur)
+     * [Reglage CPU](#reglage-cpu)
+     * [Mémoire](#mémoire)
+     * [Réseau](#réseau)
+     * [Activation de l'affichage](#activation-de-laffichage)
+     
 * [Sauvegarde et restauration de machines virtuelles](#sauvegarde-et-restauration-de-machines-virtuelles)
 
 ## Présentation
@@ -211,13 +219,13 @@ Ces iso peuvent être des netinstall debian, livecd clonezilla, disques d'instal
 
 ## Création de machine virtuelle
 
-**Configuration de l'ID de la VM**
+### **Configuration de l'ID de la VM**
 
 ![15](images/15.png)
 
 Les VM sont repérées par leur numéro (ici 100). On donnera le nom souhaité pour plus de clareté.
 
-**Configuration du cd-rom.**
+### **Configuration du cd-rom.**
 
 Il faut ensuite choisir le contenu du cd-rom. On peut utiliser une des iso que l'on a auparavant uploadé sur le serveur, ou alors utiliser le cd-rom de l'hote, voir aucun cd-rom si tout est fait en pxe.
 ![16](images/16.png)
@@ -225,7 +233,7 @@ Il faut ensuite choisir le contenu du cd-rom. On peut utiliser une des iso que l
 On choisir aussi si le système d'exploitation de la future machine virtuelle.
 ![17](images/17.png)
 
-**Configuration du disque dur.**
+### **Configuration du disque dur.**
 
 ![18](images/18.png)
 
@@ -234,18 +242,18 @@ Remarque:Comme pour Virtualbox, la place prise réellement sur le disque dur ser
 
 *J'utilise pour mes serveurs le mode `SATA`, mais il est possible que les résultats soient meilleurs avec d'autres reglages.*
 
-**Reglage CPU**
+### **Reglage CPU**
 
 On peut choisir le nombre de coeurs du processeur. L'aide indique que l'on peut mettre sans problème plus de coeurs virtuels que de coeurs réels du serveur hote.
 
 ![19](images/19.png)
 
-**Mémoire**
+### **Mémoire**
 
 On indique la quantité de RAm à allouer à la VM. On peut utiliser une quantité dynamique pour les serveurs fonctionnant par intermittence.
 
 
-**réseau**
+### **Réseau**
 
 Il ne reste plus qu'à choisir les caractéristiques du réseau. On prendra le mode bridge, pour que la VM puisse avoir une ip du mme genre que la machine hote.
 
@@ -255,7 +263,7 @@ Il sera également possible de choisir différents modèles de cartes réseau. P
 
 On valide la dernière étape et la Machine Virtuelle est presque prête.
 
-**Activation de l'affichage**
+### **Activation de l'affichage**
 
 Lorsque la machine vient tout juste d'pêtre créée, il est indispensable d'avoir un affichage de l'écran. Pour cela, cliquer sur la VM, puis options et activer `Agent Qemu` sur Yes.
 ![23](images/23.png)
