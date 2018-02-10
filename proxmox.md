@@ -4,9 +4,14 @@
 * [Présentation](#présentation)
 * [Installation de base du serveur](#installation-de-base-du-serveur)
      * [Choix du mdp root](#choix-du-mdp-root)
-     * [choix du réseau](#choix-du-réseau)
+     * [Choix du réseau](#choix-du-réseau)
      * [Reglage du proxy](#reglage-du-proxy)
+     * [Configuration de l'envoi de mail par le serveur](#configuration-de-lenvoi-de-mail-par-le-serveur)
+     * [Modification des sources](#Modification-des-sources)
 * [Interface web de gestion](#interface-web-de-gestion)
+     * [Accès à l'interface](#accès-à-linterface)
+     * [Présentation de l'interface](#présentation-de-linterface)
+     * [Contenu des disques](#contenu-des-disques)
 * [Ajout de disques durs internes pour stocker les vm ou les sauvegardes](#ajout-de-disques-durs-internes-pour-stocker-les-vm-ou-les-sauvegardes)
 * [Ajout de livecd iso pour booter une vm](#ajout-de-livecd-iso-pour-booter-une-vm)
 * [Création de machine virtuelle](#création-de-machine-virtuelle)
@@ -66,7 +71,7 @@ export ftp_proxy="http://172.20.0.1:3128"
 ```
 
 
-**Configuration de l'envoi de mail par le serveur**
+### **Configuration de l'envoi de mail par le serveur**
 Pour que le serveur puisse envoyer les alertes par mail, on va installer le paquet en lgne de commande
 ```
 apt-get update
@@ -92,13 +97,15 @@ hostname=lyc-prevert-longjumeau.ac-versailles.fr
 
 
 
-**modification des sources**
+### **Modification des sources**
 Il est possible de récupérer les mises à jour de proxmox sans payer de cotisation en utilisant le dépot non-entreprise. La méthode est décrite ici.
 
 https://pve.proxmox.com/wiki/Package_Repositories
 
 ## Interface web de gestion
-Pour gérer le serveur et les machines virtuelles,il suffit d'utiliser un navigateur et de se rendre à l'adresse indiquée. 
+### Accès à l'interface
+Pour gérer le serveur et les machines virtuelles,il suffit d'utiliser un navigateur et de se rendre à l'adresse indiquée: https://ip:8006
+
 
 
 **ATTENTION**, il faudra peut-être désactiver le proxy du navigateur pour accéder à l'interface.
@@ -112,6 +119,7 @@ Par la suite, il sera possible de créer des comptes utilisateurs `proxmox` pour
 
 *Un message d'erreur indique que le serveur n'est pas enregistré, ce qui est normal. Ignorer donc cet avertissement.*
 
+### Présentation de l'interface
 
 On arrive sur l'interface. 
 On observe la présence d'un datacenter, qui pourra contenir plusieurs serveurs `proxmox` (noeuds ou clusters).Ici il n'y en a qu'un (nom netbios pve).
@@ -126,7 +134,7 @@ sauvegarde | permet de programmer des sauvegardes de machines.
 permissions| permet de gérer/créer des comptes utilisateurs,groupes utilisateurs
 
 
-**contenu des disques**
+### **Contenu des disques**
 Il faudra indiquer pour chaque espace de stockage ce qu'ils contiendront:
 
 dénomination | type de données stockées
