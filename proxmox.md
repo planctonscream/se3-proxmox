@@ -1,4 +1,4 @@
-####début de brouillon######
+####article en cours de rédaction...donc non terminé######
 
 
 * [Présentation](#présentation)
@@ -24,6 +24,7 @@
      * [Activation de l'affichage](#activation-de-laffichage)
      
 * [Sauvegarde et restauration de machines virtuelles](#sauvegarde-et-restauration-de-machines-virtuelles)
+* [Créer un compte utilisateur](#créer-un-compte-utilisateur)
 
 ## Présentation
 
