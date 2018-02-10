@@ -250,7 +250,7 @@ On peut choisir le nombre de coeurs du processeur. L'aide indique que l'on peut 
 
 ### **Mémoire**
 
-On indique la quantité de RAm à allouer à la VM. On peut utiliser une quantité dynamique pour les serveurs fonctionnant par intermittence.
+On indique la quantité de RAM à allouer à la VM. On peut utiliser une quantité dynamique pour les serveurs fonctionnant par intermittence.
 
 
 ### **Réseau**
@@ -265,7 +265,7 @@ On valide la dernière étape et la Machine Virtuelle est presque prête.
 
 ### **Activation de l'affichage**
 
-Lorsque la machine vient tout juste d'pêtre créée, il est indispensable d'avoir un affichage de l'écran. Pour cela, cliquer sur la VM, puis options et activer `Agent Qemu` sur Yes.
+Lorsque la machine vient tout juste d'être créée, il est indispensable d'avoir un affichage de l'écran. Pour cela, cliquer sur la VM, puis options et activer `Agent Qemu` sur Yes.
 ![23](images/23.png)
 
 Une fois que tout ceci est prêt, on peut enfin démarrer sa VM. Il suffira d'aller dans l'onglet `Console` pour voir ce qu'indique la VM.
@@ -275,7 +275,7 @@ On peut aussi utiliser le mode plein écran pour travailler dans de meilleurs co
 ![25](images/25.png)
 
 ## Sauvegarde et restauration de machines virtuelles
-photos 27 et 28
+
 L'intérêt premier de la virtualisation c'est d'assimiler un ordinateur à un fichier. Un fichier peut donc être sauvegardé et copié à souhait.
 On peut donc fabriquer un instantanné (snapshot) de la VM avant une mise à jour sensible ou autre opération "périlleuse", et la restaurer si cela se passe mal.
 
@@ -298,6 +298,8 @@ A venir
 Par défaut, seul le compte root local du serveur possède un accès à l'interface de gestion. Il sera utile de créer un ou plusieurs comptes pour qu'un autre utilisateur puisse démarrer les machines virtuelles, ou puisse créer/restaurer des snapshots (Pour le documentaliste si on a virtualisé le serveur bcdi par exemple).
 
 On se place sur `datacenter>Permissions>utilisateur` puis `Ajouter`. On entre les informations demandées.
+
+![28](images/28.png)
 
 L'utilisateur est ainsi créé mais ne dispose d'aucun droit sur les VMS. Il faut donc lui ajouter des permissions. On peut de la même façon créer des groupes et mettre plusieurs utilisateurs dedans.
 
