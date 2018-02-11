@@ -305,31 +305,37 @@ Pour la restauration, on se placera sur l'espace de stockage dédié aux sauvega
 On insère le périphérique USB dans le serveur (et non la machine qui accède à l'interface web).
 On peut vérifier que le périphérique est bien reconnu en allant sur la console du serveur et en tapant
 ```
-fdisk -l
-```
-Ici la clef apparait sous /dev/sdb
+fdisk -l ``` 
 
 (si c'est un espace de stockage) ou alors
+
 ```
 lsusb
 ```
+Ici la clef USb apparait sous /dev/sdb1
+
 ![32](images/32.png)
 
 L'ajout de la clef doit se faire VM éteinte. (en tout cas cela ne marche pas chez moi avec VM allumée).
 On doit déjà vérifier que le périphérique est bien détecté sr le serveur proxmox.
-ajout clef usb dans VM 
+On se place sur la VM puis `Matériel>Ajouter>USB device`
 ![33](images/33.png)
-Choix clef USB image 34
+Il ne reste qu'à choisir le pérphérique USB qu'on ajoute dans la VM.
+
 ![34](images/34.png)
 
-Le périphérique USB doit appraitre en noir (s'il apparait en rouge, c'est qu'il n'est pas prêt)
+ATTENTION: Le périphérique USB doit apparaitre en noir *(s'il apparait en rouge, c'est qu'il n'est pas prêt)*
+
 ![35](images/35.png)
-On démarre la VM . Ici , sur une VM Windows, on voit le périphérique être détecté.
+
+On démarre la VM . Ici , sur une VM Windows, on voit le périphérique détecté.
+
 ![36](images/36.png)
+
 Puis le périphérique prêt à être utilisé
 
 ![37](images/37.png)
-On peut maintenant utiliser le périphérique USB
+
 
 ## Créer un compte utilisateur 
 Par défaut, seul le compte root local du serveur possède un accès à l'interface de gestion. Il sera utile de créer un ou plusieurs comptes pour qu'un autre utilisateur puisse démarrer les machines virtuelles, ou puisse créer/restaurer des snapshots (Pour le documentaliste si on a virtualisé le serveur bcdi par exemple).
@@ -360,7 +366,7 @@ Le principe est simple: on va faire une image clonezilla du serveur existant. Il
 
 ### **Création de l'image clonezilla**
 Pour créer l'image clonezilla sur le serveur physique, on pourra booter avec un livecd sur la dernière version de clonezilla.
-La suite est décrite dans l'article suivant.
+La création d'image/restauration est décrite dans l'article suivant.
 
 https://github.com/SambaEdu/se3-docs/blob/master/se3-sauvegarde/clonerse3.md
 
@@ -371,11 +377,23 @@ Si l'image est sur un disque dur USB, alors il faut impérativement que ce disqu
 
 ### **Restauration de l'image clonezilla sur une VM**
 On crée la VM avec un disque de capacité au moins identique à celui du serveur physique original. 
-On charge dans le cd-rom virtuel l'iso de clonezilla. Au démarrage de la machine, il faut rapidement faire "échap" pour choisir de booter sur le cd-rom virtuel.
+On charge dans le cd-rom virtuel l'iso de clonezilla. Au démarrage de la machine, il faut rapidement faire `échap` pour choisir de booter sur le cd-rom virtuel.
+![38](images/38.png)
+On indique après en appuyant sur "2" que l'on souhaite booter sur le cd-rom.
+
+![39](images/39.png)
+
 
 Si l'image est sur un disque dur USB, alors il faut impérativement que ce disque soit branché sur le serveur, et soit ajouté à la machine Virtuelle (voir plus haut). Si l'image est sur un partage réseau, alors il n'y a pas de précautions particulières à prendre (si ce n'est mettre la carte réseau en mode bridge). 
+On vérifie que le disque USB est bien reconnu (si on a bien l'image sur un support USB).
+![40](images/40.png)
 
-De nombreux périphériques vont être détectés au démarrage, ce qui est normal.
+Le reste de l'étape de restauration est toujours dans l'article suivant :
+https://github.com/SambaEdu/se3-docs/blob/master/se3-sauvegarde/clonerse3.md
+
+
+De nombreux périphériques vont être détectés au démarrage, ce qui est normal.Voilà, le serveur physique est maintenant virtualisé.
+Il sera judicieux de faire aussitôt une sauvegarde complète, ainsi qu'un snpashot de ce serveur.
 
 ### **Problèmes possibles**
 
