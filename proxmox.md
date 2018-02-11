@@ -1,5 +1,5 @@
 ####article en cours de rédaction...donc non terminé######
-
+Cet article est avant tout un pense-bête personnel des différentes opérations que j'ai du effectuer pour virtualiser les serveurs de mon lycée. Je laisse donc les pros de proxmox ajouter les précisions techniques importantes (notamment sur les clusters, ainsi que les performances en ZFS).
 
 * [Présentation](#présentation)
 * [Installation de base du serveur](#installation-de-base-du-serveur)
@@ -34,7 +34,7 @@
 
 ## Présentation
 
-Proxmox est un puissant système libre (le support est néanmoins payant) de virtualisation basé sur Debian et qui utilise l'hyperviseur KVM (pour de la virtualisation complète), ou des containeurs lxc Il permet à la façon de virtualbox (mais cette fois pour un usage pro) de créer des  snapshots de machine, des sauvegardes complètes et beaucoup d'autres fonctionnalités. 
+Proxmox 5 est un puissant système libre (le support est néanmoins payant) de virtualisation basé sur Debian et qui utilise l'hyperviseur KVM (pour de la virtualisation complète), ou des containeurs lxc Il permet à la façon de virtualbox (mais cette fois pour un usage pro) de créer des  snapshots de machine, des sauvegardes complètes et beaucoup d'autres fonctionnalités. 
 
 Le serveur et les vms peuvent se gérer à partir d'une **interface web**, et une gestion possible des comptes utilisateurs va permettre de laisser à des tiers un accès avec plus ou moins de droits sur une machine (comme le serveur bcdi par exemple).  
 
@@ -221,7 +221,8 @@ On peut faire `datacenter>stockage>ajouter> répertoire`. On y écrit le répert
 
 On choisi également le type de contenu que l'on souhaite y mettre:
 
-
+Remarque: Il n'est à priori pas possible d'ajouter un partage samba dans les espaces de stockage. On peut néanmoins coutourner cela en montant un partage samba dans un répertoire du serveur, et en indiquant ce répertoire dans l'ajout de répertoires locaux.
+Il faudra installer sur le serveur le paquet `cifs-utils` sur le serveur.
 
 
 ## Ajout de livecd iso pour booter une vm 
