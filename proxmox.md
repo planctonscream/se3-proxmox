@@ -22,9 +22,13 @@
      * [Mémoire](#mémoire)
      * [Réseau](#réseau)
      * [Activation de l'affichage](#activation-de-laffichage)
-     
-* [Sauvegarde et restauration de machines virtuelles](#sauvegarde-et-restauration-de-machines-virtuelles)
+     * [Sauvegarde et restauration de machines virtuelles](#sauvegarde-et-restauration-de-machines-virtuelles)
 * [Créer un compte utilisateur](#créer-un-compte-utilisateur)
+* [Migration d'un serveur physique existant vers une VM](#migration-dun-serveur-physique-existant-vers-une-vm)
+     * [Création de l'image clonezilla](#création-de-limage-clonezilla)
+     * [Restauration de l'image clonezilla sur une VM](#restauration-de-limage-clonezilla-sur-une-vm)
+     * [Problèmes possibles](#problèmes-possibles)
+     
 
 ## Présentation
 
@@ -34,6 +38,10 @@ Le serveur et les vms peuvent se gérer à partir d'une **interface web**, et un
 
 L'installation pourra se faire avec les paquets proxmox, mais il sera bien plus pratique d'utiliser l'iso toute faite sur le site officiel de proxmox:
 https://www.proxmox.com/en/downloads
+
+Virtualiser un serveur va avoir plusieurs avantages:
+Le premier sera de pouvoir installer plusieurs serveurs sur un même machine physique.
+Le deuxième sera de pouvoir faire des sauvegardes/restauration de machines très simplement.
 
 ## Installation de base du serveur
 
@@ -317,12 +325,12 @@ On peut voir ici que l'utilisateur documentaliste ne perçoit que la VM concern�
 --> Il doit être possible de créer un rôle ayant seulement quelques privilèges comme allumer/éteindre la VM, faire des sauvegardes/snapshots et les restaurer. A voir donc.
 
 
-## Migration d'un serveur physique existant vers une VM.
-*a venir*
+## Migration d'un serveur physique existant vers une VM
+*En cours de rédaction*
 Le principe est simple: on va faire une image clonezilla du serveur existant. Il suffira ensuite de créer une VM ayant des caractéristiques identiques et de restaurer l'image clonezilla sur cette VM. 
 
 
-**Création de l'image clonezilla**
+### **Création de l'image clonezilla**
 Pour créer l'image clonezilla sur le serveur physique, on pourra booter avec un livecd sur la dernière version de clonezilla.
 La suite est décrite dans l'article suivant.
 
@@ -330,11 +338,11 @@ https://github.com/SambaEdu/se3-docs/blob/master/se3-sauvegarde/clonerse3.md
 
 L'image pourra être stockée sur un disque dur externe, sur un serveur linux avec une connexion ssh, ou sur un partage samba (NAS ou serveur samba). Le plus simple sera d'utiliser un stockage réseau.
 
-**Restauration de l'image clonezilla sur une VM.**
+### **Restauration de l'image clonezilla sur une VM**
 On crée la VM avec un disque de capacité au moins identique à celui du serveur physique original
 De nombreux périphériques vont être détectés au démarrage, ce qui est normal.
 
-[*Problèmes possibles:*]
+### **Problèmes possibles**
 
 **La carte réseau ne semble pas détectée.**
 
