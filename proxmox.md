@@ -24,6 +24,7 @@
      * [Activation de l'affichage](#activation-de-laffichage)
      * [Sauvegarde et restauration de machines virtuelles](#sauvegarde-et-restauration-de-machines-virtuelles)
 * [Créer un compte utilisateur](#créer-un-compte-utilisateur)
+* [## Ajout d'un périphérique usb dans une machine virtuelle](ajout-dun-périphérique-usb-dans-une-machine-virtuelle)
 * [Migration d'un serveur physique existant vers une VM](#migration-dun-serveur-physique-existant-vers-une-vm)
      * [Création de l'image clonezilla](#création-de-limage-clonezilla)
      * [Restauration de l'image clonezilla sur une VM](#restauration-de-limage-clonezilla-sur-une-vm)
@@ -307,6 +308,7 @@ On peut vérifier que le périphérique est bien reconnu en allant sur la consol
 fdisk -l
 ```
 Ici la clef apparait sous /dev/sdb
+
 (si c'est un espace de stockage) ou alors
 ```
 lsusb
@@ -314,7 +316,7 @@ lsusb
 ![32](images/32.png)
 
 L'ajout de la clef doit se faire VM éteinte. (en tout cas cela ne marche pas chez moi avec VM allumée).
-On doit déjà vérifier que le périphérique est bien détecté sr le serveur proxmox
+On doit déjà vérifier que le périphérique est bien détecté sr le serveur proxmox.
 ajout clef usb dans VM 
 ![33](images/33.png)
 Choix clef USB image 34
