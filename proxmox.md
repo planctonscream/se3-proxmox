@@ -6,6 +6,7 @@
      * [Choix du mdp root](#choix-du-mdp-root)
      * [Choix du réseau](#choix-du-réseau)
      * [Reglage du proxy](#reglage-du-proxy)
+ * [Quelques points à modifier pour la gestion du serveur](#quelques-points-à-modifier-pour-la-gestion-du-serveur)
      * [Configuration de l'envoi de mail par le serveur](#configuration-de-lenvoi-de-mail-par-le-serveur)
      * [Modification des sources](#Modification-des-sources)
 * [Interface web de gestion](#interface-web-de-gestion)
@@ -77,7 +78,8 @@ L'installation des paquets est automatique.
 Le serveur redémarre , et indique comment acceder à l'interface de gestion. On peut acceder evidemment au serveur en ssh (connexion directe par le compte root possible).
 ![06](images/06.png)
 
-[Quelques points à modifier pour la gestion du serveur]
+## **Quelques points à modifier pour la gestion du serveur**
+Une fois le serveur installé, il faudra procéder à quelques ajustements:
 
 ### **Reglage du proxy** 
 Il faudra se connecter en root sur le serveur et configurer le proxy en ligne de commande
