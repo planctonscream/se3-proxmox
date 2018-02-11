@@ -24,7 +24,7 @@
      * [Activation de l'affichage](#activation-de-laffichage)
      * [Sauvegarde et restauration de machines virtuelles](#sauvegarde-et-restauration-de-machines-virtuelles)
 * [Créer un compte utilisateur](#créer-un-compte-utilisateur)
-* [## Ajout d'un périphérique usb dans une machine virtuelle](ajout-dun-périphérique-usb-dans-une-machine-virtuelle)
+* [Ajout d'un périphérique usb dans une machine virtuelle](ajout-dun-périphérique-usb-dans-une-machine-virtuelle)
 * [Migration d'un serveur physique existant vers une VM](#migration-dun-serveur-physique-existant-vers-une-vm)
      * [Création de l'image clonezilla](#création-de-limage-clonezilla)
      * [Restauration de l'image clonezilla sur une VM](#restauration-de-limage-clonezilla-sur-une-vm)
