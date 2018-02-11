@@ -301,7 +301,33 @@ Pour la restauration, on se placera sur l'espace de stockage dédié aux sauvega
 ![27](images/27.png)
 
 ## Ajout d'un périphérique usb dans une machine virtuelle
-A venir
+On insère le périphérique USB dans le serveur (et non la machine qui accède à l'interface web).
+On peut vérifier que le périphérique est bien reconnu en allant sur la console du serveur et en tapant
+```
+fdisk -l
+```
+Ici la clef apparait sous /dev/sdb
+(si c'est un espace de stockage) ou alors
+```
+lsusb
+```
+![32](images/32.png)
+
+L'ajout de la clef doit se faire VM éteinte. (en tout cas cela ne marche pas chez moi avec VM allumée).
+On doit déjà vérifier que le périphérique est bien détecté sr le serveur proxmox
+ajout clef usb dans VM 
+![33](images/33.png)
+Choix clef USB image 34
+![34](images/34.png)
+
+Le périphérique USB doit appraitre en noir (s'il apparait en rouge, c'est qu'il n'est pas prêt)
+![35](images/35.png)
+On démarre la VM . Ici , sur une VM Windows, on voit le périphérique être détecté.
+![36](images/36.png)
+Puis le périphérique prêt à être utilisé
+
+![37](images/37.png)
+On peut maintenant utiliser le périphérique USB
 
 ## Créer un compte utilisateur 
 Par défaut, seul le compte root local du serveur possède un accès à l'interface de gestion. Il sera utile de créer un ou plusieurs comptes pour qu'un autre utilisateur puisse démarrer les machines virtuelles, ou puisse créer/restaurer des snapshots (Pour le documentaliste si on a virtualisé le serveur bcdi par exemple).
@@ -338,8 +364,15 @@ https://github.com/SambaEdu/se3-docs/blob/master/se3-sauvegarde/clonerse3.md
 
 L'image pourra être stockée sur un disque dur externe, sur un serveur linux avec une connexion ssh, ou sur un partage samba (NAS ou serveur samba). Le plus simple sera d'utiliser un stockage réseau.
 
+Si l'image est sur un disque dur USB, alors il faut impérativement que ce disque soit branché sur le serveur, et soit ajouté à la machine Virtuelle (voir plus haut). Si l'image est sur un partage réseau, alors il n'y a pas de précautions particulières à prendre (si ce n'est mettre la carte réseau en mode bridge).
+
+
 ### **Restauration de l'image clonezilla sur une VM**
-On crée la VM avec un disque de capacité au moins identique à celui du serveur physique original
+On crée la VM avec un disque de capacité au moins identique à celui du serveur physique original. 
+On charge dans le cd-rom virtuel l'iso de clonezilla. Au démarrage de la machine, il faut rapidement faire "échap" pour choisir de booter sur le cd-rom virtuel.
+
+Si l'image est sur un disque dur USB, alors il faut impérativement que ce disque soit branché sur le serveur, et soit ajouté à la machine Virtuelle (voir plus haut). Si l'image est sur un partage réseau, alors il n'y a pas de précautions particulières à prendre (si ce n'est mettre la carte réseau en mode bridge). 
+
 De nombreux périphériques vont être détectés au démarrage, ce qui est normal.
 
 ### **Problèmes possibles**
