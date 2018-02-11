@@ -122,6 +122,9 @@ Il est possible de récupérer les mises à jour de proxmox sans payer de cotisa
 
 https://pve.proxmox.com/wiki/Package_Repositories
 
+Le site indique que les mises à jour ne sont pas sures à 100% e que ceci ne doit être fait qu'avec un serveur de test.
+Si on est un peu frileux, on peut commenter le dépot `proxmox` et ne laisser que les mises à jour `Débian`. Ceci évitera d'avoir un message d'erreur envoyé par le serveur.
+
 ## Interface web de gestion
 ### Accès à l'interface
 Pour gérer le serveur et les machines virtuelles,il suffit d'utiliser un navigateur et de se rendre à l'adresse indiquée: https://ip:8006
