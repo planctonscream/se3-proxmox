@@ -384,7 +384,8 @@ Pour la restauration, on se placera sur l'espace de stockage dédié aux sauvega
 On insère le périphérique USB dans le serveur (et non la machine qui accède à l'interface web).
 On peut vérifier que le périphérique est bien reconnu en allant sur la console du serveur et en tapant
 ```
-fdisk -l ``` 
+fdisk -l 
+``` 
 
 (si c'est un espace de stockage) ou alors
 
