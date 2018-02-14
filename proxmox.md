@@ -37,7 +37,7 @@ Cet article est avant tout un pense-bête personnel des différentes opérations
      * [Restauration de l'image clonezilla sur une VM](#restauration-de-limage-clonezilla-sur-une-vm)
      * [Problèmes possibles](#problèmes-possibles)
 * [Clusters](#clusters)
-    * [Définition]
+    * [Définition] (#Qu'est-ce qu'un cluster proxmox?)
 
 ## Présentation
 
@@ -494,6 +494,7 @@ Il faut alors augmenter la capacité du disque virtuel
 Si le mode SATA était activé, il faut alors essayé un autre type de connexion (scsi).
 
 ### **Clusters**
-
+**Qu'est-ce qu'un cluster Proxmox?**
+Un cluster proxmox est un groupe d'au moins deux serveurs physiques Proxmox associés pour mettre en commun leurs ressources. Ce dispositif permet dans certaines conditions de transférer rapidement une VM d'un serveur physique à l'autre. Cela peut-être très utile en cas de défaillance d'un des serveurs ou bien lors des mises à jour en permettant de faire les modifications sur les serveurs physiques sans arrêt des VM
 
 
