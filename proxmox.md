@@ -36,7 +36,8 @@ Cet article est avant tout un pense-bête personnel des différentes opérations
      * [Création de l'image clonezilla](#création-de-limage-clonezilla)
      * [Restauration de l'image clonezilla sur une VM](#restauration-de-limage-clonezilla-sur-une-vm)
      * [Problèmes possibles](#problèmes-possibles)
-     
+* [Clusters]
+    * [Définition]
 
 ## Présentation
 
